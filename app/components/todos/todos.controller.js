@@ -2,9 +2,9 @@ import { reduce } from 'ramda'
 
 export default class TodosController {
 
-  constructor() {
+  constructor(randomTasks) {
     this.todos = [
-      {text:'Mop Floor', done:false},
+      {text: randomTasks.getName(), done:false},
       {text:'Clean Shower', done:false}
     ]
   }
