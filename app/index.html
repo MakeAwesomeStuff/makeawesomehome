@@ -1,23 +1,13 @@
 <!doctype html>
-<html ng-app="todoApp">
+<html ng-app="makeawesomehome" lang="en">
   <head>
+    <meta charset="UTF-8">
+    <title>MakeAwesomeHome</title>
+    <base href="/">
   </head>
   <body>
-    <h2>MakeAwesomeHome</h2>
-    <div ng-controller="TodoListController as todoList">
-      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
-      [ <a href="" ng-click="todoList.archive()">archive</a> ]
-      <ul class="unstyled">
-        <li ng-repeat="todo in todoList.todos">
-          <input type="checkbox" ng-model="todo.done">
-          <span class="done-{{todo.done}}">{{todo.text}}</span>
-        </li>
-      </ul>
-      <form ng-submit="todoList.addTodo()">
-        <input type="text" ng-model="todoList.todoText"  size="30"
-               placeholder="add new todo here">
-        <input class="btn-primary" type="submit" value="add">
-      </form>
+    <div class="container">
+      <ui-view></ui-view>
     </div>
   </body>
 </html>
