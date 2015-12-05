@@ -33,3 +33,7 @@ The javascript files run through (Babel)[https://babeljs.io/] so feel free to us
 1. AngularJS (v1 not 2)
 2. Webpack
 3. Babel
+
+## Thanks to
+
+* (Foxandxss)[https://github.com/Foxandxss] for his (angular-webpack-workflow)[https://github.com/Foxandxss/angular-webpack-workflow] which is the basis of this project's setup
