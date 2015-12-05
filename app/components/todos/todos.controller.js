@@ -1,12 +1,10 @@
-import { reduce } from 'ramda'
+import { reduce, filter } from 'ramda'
 
 export default class TodosController {
 
-  constructor(randomTasks) {
-    this.todos = [
-      {text: randomTasks.getName(), done:false},
-      {text:'Clean Shower', done:false}
-    ]
+  constructor(dummyData) {
+    this.todos = dummyData.getTodos()
+    this.name="David"
   }
 
   addTodo() {
@@ -19,10 +17,6 @@ export default class TodosController {
   }
 
   archive() {
-    var oldTodos = this.todos
-    this.todos = []
-    angular.forEach(oldTodos, function(todo) {
-      if (!todo.done) this.todos.push(todo)
-    })
+    this.todos = filter((todo)=>!todo.done, this.todos)
   }
 }
