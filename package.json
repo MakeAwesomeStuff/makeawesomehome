@@ -1,0 +1,44 @@
+{
+  "name": "makeawesomehome",
+  "version": "0.0.0",
+  "description": "A chore todo list that will make your home awesome!",
+  "main": "app/app.module.js",
+  "scripts": {
+    "build": "webpack --config webpack.build.js --bail -p",
+    "dev": "webpack-dev-server --history-api-fallback --inline --progress",
+    "test": "karma start",
+    "test:live": "karma start --auto-watch --no-single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MakeAwesomeStuff/makeawesomehome.git"
+  },
+  "keywords": [
+    "Todo",
+    "angularjs",
+    "babel"
+  ],
+  "author": "David Langford",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MakeAwesomeStuff/makeawesomehome/issues"
+  },
+  "homepage": "https://github.com/MakeAwesomeStuff/makeawesomehome#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.1.2",
+    "babel-core": "^6.3.13",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^1.7.0",
+    "isparta-instrumenter-loader": "^1.0.0",
+    "karma": "^0.13.15",
+    "karma-coffee-preprocessor": "^0.3.0",
+    "postcss-loader": "^0.8.0",
+    "raw-loader": "^0.5.1",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  }
+}
