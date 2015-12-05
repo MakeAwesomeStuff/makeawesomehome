@@ -1,3 +1,5 @@
+import { reduce } from 'ramda'
+
 export default class TodosController {
 
   constructor() {
@@ -13,11 +15,7 @@ export default class TodosController {
   }
 
   remaining() {
-    var count = 0
-    angular.forEach(this.todos, function(todo) {
-      count += todo.done ? 0 : 1
-    })
-    return count
+    return reduce((acc, todo) => todo.done ? acc : acc+1, 0, this.todos)
   }
 
   archive() {
