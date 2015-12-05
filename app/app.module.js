@@ -1,7 +1,10 @@
-import angular from 'angular';
 import 'bootstrap/dist/css/bootstrap.css';
+import angular from 'angular';
+import routing from './app.route.js';
+import uirouter from 'angular-ui-router';
 
-angular.module('todoApp', [])
+angular.module('todoApp', [uirouter])
+  .config(routing)
   .controller('TodoListController', function() {
     var todoList = this;
     todoList.todos = [
