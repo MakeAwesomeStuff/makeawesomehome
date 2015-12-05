@@ -1,3 +1,6 @@
+import angular from 'angular';
+import 'bootstrap/dist/css/bootstrap.css';
+
 angular.module('todoApp', [])
   .controller('TodoListController', function() {
     var todoList = this;
