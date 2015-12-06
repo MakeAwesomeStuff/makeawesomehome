@@ -1,9 +1,9 @@
 // Modules
-var path = require('path')
-var webpack = require('webpack')
-var autoprefixer = require('autoprefixer')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = function makeWebpackConfig (options) {
   /**
@@ -11,8 +11,8 @@ module.exports = function makeWebpackConfig (options) {
    * BUILD is for generating minified builds
    * TEST is for generating test builds
    */
-  var BUILD = !!options.BUILD
-  var TEST = !!options.TEST
+  const BUILD = !!options.BUILD
+  const TEST = !!options.TEST
 
   var config = {}
 

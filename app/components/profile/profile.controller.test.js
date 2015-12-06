@@ -1,7 +1,6 @@
 import profile from './index'
 
 describe('Controller: profile', function() {
-  console.log('1')
   let $controller
 
   beforeEach(angular.mock.module(profile))

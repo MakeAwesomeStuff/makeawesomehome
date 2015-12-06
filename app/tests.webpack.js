@@ -4,12 +4,11 @@ import 'angular'
 import 'angular-mocks/angular-mocks'
 
 Function.prototype.bind = Function.prototype.bind || function (thisp) {
-  var fn = this;
+  let fn = this;
   return function () {
     return fn.apply(thisp, arguments);
   };
 };
 
-var testsContext = require.context(".", true, /.test$/)
-console.log('testsContext', testsContext)
+const testsContext = require.context(".", true, /.test$/)
 testsContext.keys().forEach(testsContext)
