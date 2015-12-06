@@ -8,4 +8,10 @@ export default function routes($stateProvider) {
       controller: 'TodosController',
       controllerAs: 'todos'
     })
+    .state('todos.subview', {
+      url: '/todos/subview',
+      template: require('../subview/subview.template.html'),
+      controller: 'SubviewController',
+      controllerAs: 'subview'
+    })
 }
