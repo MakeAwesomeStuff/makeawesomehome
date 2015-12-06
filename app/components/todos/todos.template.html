@@ -1,12 +1,10 @@
 <h2>MakeAwesomeHome</h2>
-<greeting name="todos.name"></greeting>
 <div>
   <span>{{todos.remaining()}} of {{todos.todos.length}} remaining</span>
   [ <a href="" ng-click="todos.archive()">archive</a> ]
   <ul class="unstyled">
     <li ng-repeat="todo in todos.todos">
-      <input type="checkbox" ng-model="todo.done">
-      <span class="done-{{todo.done}}">{{todo.text}}</span>
+      <task task="todo.text" model="todo.done"></task>
     </li>
   </ul>
   <form ng-submit="todos.addTodo()">
