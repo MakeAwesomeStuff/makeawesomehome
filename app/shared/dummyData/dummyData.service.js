@@ -1,6 +1,6 @@
 import angular from 'angular'
 
-class DummyData {
+export default class DummyData {
   getTodos() {
     return [
       {text: 'Clean Shower', done:false},
@@ -10,7 +10,3 @@ class DummyData {
     ]
   }
 }
-
-export default angular.module('services.dummy-data', [])
-  .service('dummyData', DummyData)
-  .name

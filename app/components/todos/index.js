@@ -3,8 +3,8 @@ import uirouter from 'angular-ui-router'
 
 import routing from './todos.routes'
 import TodosController from './todos.controller'
-import dummyData from '../../shared/services/dummyData.service'
-import task from '../../shared/directives/task'
+import dummyData from '../../shared/dummyData'
+import task from '../../shared/task'
 
 export default angular
   .module(
