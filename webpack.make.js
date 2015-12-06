@@ -59,6 +59,10 @@ module.exports = function makeWebpackConfig (options) {
     }, {
       test: /\.html$/,
       loader: 'raw'
+    },
+    {
+      test: /\.scss$/,
+      loaders: ['style','css','sass']
     }]
   };
 

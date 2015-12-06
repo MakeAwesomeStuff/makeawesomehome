@@ -1,15 +1,6 @@
-import angular from 'angular';
-
-function task() {
-  return {
-    restrict: 'E',
-    scope: {
-      task: '=',
-      model: '='
-    },
-    template: require('./task.template.html')
-  }
-}
+import angular from 'angular'
+import task from './task.directive'
+import './task.style.scss'
 
 export default angular.module('directives.task', [])
   .directive('task', task)

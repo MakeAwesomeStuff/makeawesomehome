@@ -1,0 +1,10 @@
+.task {
+  label {
+    border: 1px solid #ccc;
+    padding: 30px;
+
+    &:hover {
+      background: #ccc;
+    }
+  }
+}
