@@ -39,5 +39,5 @@ module.exports = function karmaConfig (config) {
     webpackMiddleware: {
       noInfo: true
     }
-  });
-};
+  })
+}

@@ -1,11 +1,9 @@
-'use strict';
-
 // Modules
-var path = require('path');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path')
+var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = function makeWebpackConfig (options) {
   /**
@@ -13,10 +11,10 @@ module.exports = function makeWebpackConfig (options) {
    * BUILD is for generating minified builds
    * TEST is for generating test builds
    */
-  var BUILD = !!options.BUILD;
-  var TEST = !!options.TEST;
+  var BUILD = !!options.BUILD
+  var TEST = !!options.TEST
 
-  var config = {};
+  var config = {}
 
   // Karma will set this when it's a test build
   if (TEST) {
@@ -40,11 +38,11 @@ module.exports = function makeWebpackConfig (options) {
   }
 
   if (TEST) {
-    config.devtool = 'inline-source-map';
+    config.devtool = 'inline-source-map'
   } else if (BUILD) {
-    config.devtool = 'source-map';
+    config.devtool = 'source-map'
   } else {
-    config.devtool = 'eval';
+    config.devtool = 'eval'
   }
 
   config.module = {
@@ -64,7 +62,7 @@ module.exports = function makeWebpackConfig (options) {
       test: /\.scss$/,
       loaders: ['style','css','sass']
     }]
-  };
+  }
 
   if (TEST) {
     config.module.preLoaders.push({
@@ -80,25 +78,25 @@ module.exports = function makeWebpackConfig (options) {
   var cssLoader = {
     test: /\.css$/,
     loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
-  };
+  }
 
   if (TEST) {
     cssLoader.loader = 'null'
   }
 
-  config.module.loaders.push(cssLoader);
+  config.module.loaders.push(cssLoader)
 
   config.postcss = [
     autoprefixer({
       browsers: ['last 2 version']
     })
-  ];
+  ]
 
   config.plugins = [
     new ExtractTextPlugin('[name].[hash].css', {
       disable: !BUILD || TEST
     })
-  ];
+  ]
 
   if (!TEST) {
     config.plugins.push(
@@ -125,7 +123,7 @@ module.exports = function makeWebpackConfig (options) {
       colors: true,
       chunk: false
     }
-  };
+  }
 
-  return config;
-};
+  return config
+}

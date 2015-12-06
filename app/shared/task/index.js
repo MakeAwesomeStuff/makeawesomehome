@@ -4,4 +4,4 @@ import './task.style.scss'
 
 export default angular.module('directives.task', [])
   .directive('task', task)
-  .name;
+  .name
