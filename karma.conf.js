@@ -1,3 +1,4 @@
+require('phantomjs-polyfill')
 module.exports = function karmaConfig (config) {
   config.set({
     frameworks: [
@@ -10,6 +11,7 @@ module.exports = function karmaConfig (config) {
     ],
 
     files: [
+    './node_modules/phantomjs-polyfill/bind-polyfill.js',
       'app/tests.webpack.js'
     ],
 
