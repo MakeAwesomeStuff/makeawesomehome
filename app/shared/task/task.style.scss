@@ -1,10 +1,42 @@
 .task {
+  display: inline-block;
+  position: relative;
+
   label {
     border: 1px solid #ccc;
-    padding: 30px;
+    padding: 30px 100px 30px 30px;
 
     &:hover {
-      background: #ccc;
+      background: #43a047;
+      border-color: #43a047;
+      color: white;
+    }
+
+    .icon-area {
+      display: none;
+    }
+  }
+
+  &.selected {
+    label {
+      border: 1px solid #43a047;
+    }
+    .icon-area {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 80px;
+      bottom: 0;
+      background-color: #43a047;
+      text-align: center;
+
+      .glyphicon {
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 23px;
+      }
     }
   }
 }

@@ -1,9 +1,12 @@
-<div class="task">
+<div class="task" ng-class="{selected: isSelected}">
   <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="model">
+      <input type="checkbox" ng-model="isSelected">
       <strong>{{task}}</strong>,
       period, location, lastcleaned
+      <div class="icon-area">
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      </div>
     </label>
   </div>
 </div>

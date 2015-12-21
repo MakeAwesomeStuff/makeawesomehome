@@ -4,7 +4,7 @@ export default class TodosController {
 
   constructor(dummyData) {
     this.todos = dummyData.getTodos()
-    this.name="David"
+    this.name = "David"
   }
 
   addTodo() {
