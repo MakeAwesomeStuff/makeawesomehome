@@ -2,8 +2,17 @@
   <div class="checkbox">
     <label>
       <input type="checkbox" ng-model="isSelected">
-      <strong>{{task}}</strong>,
-      period, location, lastcleaned
+      <div class="description-area">
+        <div class="category">
+          WEEKLY | <strong>LIVING ROOM</strong>
+        </div>
+        <div class="activity-name">
+            {{task}}
+        </div>
+        <div class="extra-info">
+          Last cleaned: <strong>8 days ago</strong>
+        </div>
+      </div>
       <div class="icon-area">
         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
       </div>

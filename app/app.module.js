@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css'
+import './app.style.scss'
 import angular from 'angular'
 import todos from './components/todos'
 import profile from './components/profile'

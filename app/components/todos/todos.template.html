@@ -2,7 +2,7 @@
 <div>
   <span>{{todos.remaining()}} of {{todos.todos.length}} remaining</span>
   [ <a href="" ng-click="todos.archive()">archive</a> ]
-  <ul class="unstyled">
+  <ul class="list-unstyled">
     <li ng-repeat="todo in todos.todos">
       <task task="todo.text" model="todo.done"></task>
     </li>
