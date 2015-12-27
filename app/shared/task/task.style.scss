@@ -37,28 +37,9 @@ $border-color:      #ccc;
       font-weight: bold;
     }
 
-    .icon-area {
-      align-items: center;
-      background-color: white;
-      display: flex;
-      min-height: 110px;
-      justify-content: center;
-      transition: background-color 0.15s ease-in-out,
-                  box-shadow 0.15s ease-in-out;
-      box-shadow: 0px 0px 0px 2px white;
-      width: 90px;
-      margin: 3px;
-
-      .glyphicon {
-        color: white;
-        font-size: 28px;
-        padding-bottom: 5px;
-      }
-    }
-
     &:hover {
       box-shadow: inset 0px 0px 0px 1px $hover-color;
-      .icon-area {
+      .big-icon {
         background-color: #eee;
         box-shadow: 0px 0px 0px 2px #eee;
       }
@@ -69,14 +50,9 @@ $border-color:      #ccc;
     label {
       box-shadow: inset 0px 0px 0px 3px $hover-color;
     }
-    .icon-area {
-      box-shadow: 0px 0px 0px 3px $hover-color;
-      background-color: $hover-color;
-      margin: 3px;
-    }
 
     &:hover {
-      .icon-area {
+      .big-icon {
         box-shadow: 0px 0px 0px 3px $hover-color;
         background-color: $hover-color;
         margin: 3px;
