@@ -4,7 +4,7 @@
   [ <a href="" ng-click="todos.archive()">archive</a> ]
   <ul class="list-unstyled">
     <li ng-repeat="todo in todos.todos">
-      <task task="todo.text" model="todo.done"></task>
+      <task task="todo.text" location="todo.location"></task>
     </li>
   </ul>
   <form ng-submit="todos.addTodo()">

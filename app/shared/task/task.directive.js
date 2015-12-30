@@ -3,7 +3,7 @@ export default function task() {
     restrict: 'E',
     scope: {
       task: '=',
-      model: '='
+      location: '='
     },
     template: require('./task.template.html')
   }
