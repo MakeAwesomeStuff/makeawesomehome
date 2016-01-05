@@ -3,8 +3,8 @@
   <span>{{todos.remaining()}} of {{todos.todos.length}} remaining</span>
   [ <a href="" ng-click="todos.archive()">archive</a> ]
   <ul class="list-unstyled">
-    <li ng-repeat="todo in todos.todos">
-      <task task="todo.text" location="todo.location"></task>
+    <li ng-repeat="task in activeTasks">
+      <task task="task"></task>
     </li>
   </ul>
   <form ng-submit="todos.addTodo()">

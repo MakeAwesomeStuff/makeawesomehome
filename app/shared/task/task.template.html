@@ -4,13 +4,13 @@
       <input type="checkbox" ng-model="isSelected">
       <div class="description-area">
         <div class="category">
-          WEEKLY | <strong>{{location}}</strong>
+          {{task.period}} | <strong>{{task.location}}</strong>
         </div>
         <div class="activity-name">
-            {{task}}
+            {{task.title}}
         </div>
         <div class="extra-info">
-          Last cleaned: <strong>8 days ago</strong>
+          Last cleaned: <strong>{{task.lastCleaned.toDateString()}}</strong>
         </div>
       </div>
       <bigicon icon="ok"></bigicon>

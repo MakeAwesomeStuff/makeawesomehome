@@ -1,4 +1,5 @@
 import angular from 'angular'
+import moment from 'moment'
 
 export default class DummyData {
   getTodos() {
@@ -10,19 +11,20 @@ export default class DummyData {
     }
     const createTodo = (text, period, lastCleaned, location) => (
       {
-        text: text,
+        title: text,
         done: false,
         period: period,
         lastCleaned: lastCleaned,
         location: location
       }
     )
+    // (HIDDEN) implies they should not be seen
     return [
-      createTodo('Clean Shower', periods.ONE_WEEKLY, null, 'Bathroom'),
+      createTodo('Clean Shower (HIDDEN)', periods.ONE_WEEKLY, moment().subtract(3, 'days').toDate(), 'Bathroom'),
       createTodo('Clean Toilet', periods.ONE_WEEKLY, null, 'Bathroom'),
-      createTodo('Mop Floor', periods.ONE_WEEKLY, null, 'Kitchen'),
-      createTodo('Vacuum', periods.ONE_WEEKLY, null, 'Living Room'),
-      createTodo('Sweep', periods.ONE_WEEKLY, null, 'Living Room')
+      createTodo('Mop Floor', periods.ONE_WEEKLY, moment().subtract(9, 'days').toDate(), 'Kitchen'),
+      createTodo('Vacuum', periods.ONE_WEEKLY, moment().subtract(15, 'days').toDate(), 'Living Room'),
+      createTodo('Sweep (HIDDEN)', periods.ONE_WEEKLY, moment().subtract(1, 'days').toDate(), 'Living Room')
     ]
   }
 }
