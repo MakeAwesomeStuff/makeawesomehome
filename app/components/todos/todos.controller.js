@@ -1,14 +1,13 @@
 import { append, reduce, filter } from 'ramda'
+import * as periods from '../../constants/periods'
 
 export default class TodosController {
 
   constructor($scope, dummyData) {
-    this.scope = $scope
-    // Assume only period is one_week for the moment
     const now = new Date()
-    const oneWeek = 60000*60*24*7
-    const wasCleanedOverWeekAgo = (t) => (now - t.lastCleaned || 0) > oneWeek
-    this.scope.activeTasks = filter(wasCleanedOverWeekAgo, dummyData.getTodos())
+    const wasCleaned = (t) => (now - t.lastCleaned || 0) > periods.getValue(t.period)
+    this.scope = $scope
+    this.scope.activeTasks = filter(wasCleaned, dummyData.getTodos())
     this.name = "David"
   }
 
