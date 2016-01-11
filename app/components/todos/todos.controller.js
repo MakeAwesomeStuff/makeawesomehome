@@ -1,4 +1,4 @@
-import { append, reduce, filter } from 'ramda'
+import { append, reduce, filter, slice } from 'ramda'
 import * as periods from '../../constants/periods'
 
 export default class TodosController {
@@ -7,7 +7,7 @@ export default class TodosController {
     const now = new Date()
     const wasCleaned = (t) => (now - t.lastCleaned || 0) > periods.getValue(t.period)
     this.scope = $scope
-    this.scope.activeTasks = filter(wasCleaned, dummyData.getTodos())
+    this.scope.activeTasks = slice(0, 3, filter(wasCleaned, dummyData.getTodos()))
     this.name = "David"
   }
 

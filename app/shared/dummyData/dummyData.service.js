@@ -13,13 +13,19 @@ export default class DummyData {
         location: location
       }
     )
+    const createDate = (daysAgo) => moment().subtract(daysAgo, 'days').toDate()
     // (HIDDEN) implies they should not be seen
     return [
-      createTodo('Clean Shower (HIDDEN)', periods.ONE_WEEKLY, moment().subtract(3, 'days').toDate(), 'Bathroom'),
+      createTodo('Clean Shower (HIDDEN)', periods.ONE_WEEKLY, createDate(3), 'Bathroom'),
       createTodo('Clean Toilet', periods.ONE_WEEKLY, null, 'Bathroom'),
-      createTodo('Mop Floor', periods.ONE_WEEKLY, moment().subtract(9, 'days').toDate(), 'Kitchen'),
-      createTodo('Vacuum (HIDDEN)', periods.TWO_WEEKLY, moment().subtract(9, 'days').toDate(), 'Living Room'),
-      createTodo('Sweep (HIDDEN)', periods.ONE_WEEKLY, moment().subtract(1, 'days').toDate(), 'Living Room')
+      createTodo('Mop Floor', periods.ONE_WEEKLY, createDate(9), 'Kitchen'),
+      createTodo('Vacuum (HIDDEN)', periods.TWO_WEEKLY, createDate(9), 'Living Room'),
+      createTodo('Sweep (HIDDEN)', periods.ONE_WEEKLY, createDate(1), 'Living Room'),
+      createTodo('Clean Kitchen Cupboard', periods.THREE_WEEKLY, null, 'Kitchen'),
+      createTodo('Vacuum', periods.ONE_WEEKLY, createDate(19), 'Bedroom'),
+      createTodo('Sweep', periods.ONE_WEEKLY,  createDate(19), 'Living Room'),
+      createTodo('Dust', periods.THREE_WEEKLY, createDate(9), 'Living Room'),
+      createTodo('Wash Towels', periods.TWO_WEEKLY, null, 'Bathroom')
     ]
   }
 }
