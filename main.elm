@@ -3,7 +3,12 @@ import StartApp.Simple exposing (start)
 
 main =
   start
-    { model = 0
+    { model =
+      { id = 1
+      , location = "Bathroom"
+      , title = "Clean Bathroom"
+      , isCompleted = False
+      }
     , update = update
     , view = view
     }

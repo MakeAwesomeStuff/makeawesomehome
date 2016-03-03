@@ -11376,42 +11376,42 @@ Elm.Chore.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var countStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2"
-                                                    ,_0: "font-size"
-                                                    ,_1: "20px"}
-                                                   ,{ctor: "_Tuple2",_0: "font-family",_1: "monospace"}
+   var choreStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2"
+                                                    ,_0: "border"
+                                                    ,_1: "1px solid #ccc"}
                                                    ,{ctor: "_Tuple2",_0: "display",_1: "inline-block"}
-                                                   ,{ctor: "_Tuple2",_0: "width",_1: "50px"}
+                                                   ,{ctor: "_Tuple2",_0: "font-size",_1: "20px"}
+                                                   ,{ctor: "_Tuple2",_0: "font-family",_1: "monospace"}
+                                                   ,{ctor: "_Tuple2",_0: "padding",_1: "20px"}
                                                    ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}]));
    var update = F2(function (action,model) {
       var _p0 = action;
-      if (_p0.ctor === "Increment") {
-            return model + 1;
-         } else {
-            return model - 1;
-         }
+      return _U.update(model,{isCompleted: true});
    });
-   var Decrement = {ctor: "Decrement"};
-   var Increment = {ctor: "Increment"};
+   var Complete = {ctor: "Complete"};
    var view = F2(function (address,model) {
       return A2($Html.div,
-      _U.list([]),
-      _U.list([A2($Html.button,
-              _U.list([A2($Html$Events.onClick,address,Decrement)]),
-              _U.list([$Html.text("-")]))
-              ,A2($Html.div,
-              _U.list([countStyle]),
-              _U.list([$Html.text($Basics.toString(model))]))
+      _U.list([choreStyle]),
+      _U.list([A2($Html.div,
+              _U.list([]),
+              _U.list([$Html.text(A2($Basics._op["++"],
+              model.title,
+              A2($Basics._op["++"],
+              " isCompleted:",
+              $Basics.toString(model.isCompleted))))]))
               ,A2($Html.button,
-              _U.list([A2($Html$Events.onClick,address,Increment)]),
-              _U.list([$Html.text("+")]))]));
+              _U.list([A2($Html$Events.onClick,address,Complete)]),
+              _U.list([$Html.text("Complete")]))]));
+   });
+   var Model = F4(function (a,b,c,d) {
+      return {id: a,location: b,title: c,isCompleted: d};
    });
    return _elm.Chore.values = {_op: _op
-                              ,Increment: Increment
-                              ,Decrement: Decrement
+                              ,Model: Model
+                              ,Complete: Complete
                               ,update: update
                               ,view: view
-                              ,countStyle: countStyle};
+                              ,choreStyle: choreStyle};
 };
 Elm.StartApp = Elm.StartApp || {};
 Elm.StartApp.Simple = Elm.StartApp.Simple || {};
@@ -11471,7 +11471,10 @@ Elm.Main.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $StartApp$Simple = Elm.StartApp.Simple.make(_elm);
    var _op = {};
-   var main = $StartApp$Simple.start({model: 0
+   var main = $StartApp$Simple.start({model: {id: 1
+                                             ,location: "Bathroom"
+                                             ,title: "Clean Bathroom"
+                                             ,isCompleted: false}
                                      ,update: $Chore.update
                                      ,view: $Chore.view});
    return _elm.Main.values = {_op: _op,main: main};

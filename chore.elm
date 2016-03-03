@@ -7,40 +7,42 @@ import Html.Events exposing (onClick)
 
 -- MODEL
 
-type alias Model = Int
+type alias Model =
+  { id: Int
+  , location: String
+  , title: String
+  , isCompleted: Bool
+  }
 
 
 -- UPDATE
 
-type Action = Increment | Decrement
+type Action = Complete
 
 update : Action -> Model -> Model
 update action model =
   case action of
-    Increment ->
-      model + 1
-
-    Decrement ->
-      model - 1
+    Complete ->
+      { model | isCompleted = True }
 
 
 -- VIEW
 
 view : Signal.Address Action -> Model -> Html
 view address model =
-  div []
-    [ button [ onClick address Decrement ] [ text "-" ]
-    , div [ countStyle ] [ text (toString model) ]
-    , button [ onClick address Increment ] [ text "+" ]
+  div [ choreStyle ]
+    [ div [ ] [ text (model.title ++ " isCompleted:" ++ toString model.isCompleted) ]
+    , button [ onClick address Complete ] [ text "Complete" ]
     ]
 
 
-countStyle : Attribute
-countStyle =
+choreStyle : Attribute
+choreStyle =
   style
-    [ ("font-size", "20px")
-    , ("font-family", "monospace")
+    [ ("border", "1px solid #ccc")
     , ("display", "inline-block")
-    , ("width", "50px")
+    , ("font-size", "20px")
+    , ("font-family", "monospace")
+    , ("padding", "20px")
     , ("text-align", "center")
     ]
