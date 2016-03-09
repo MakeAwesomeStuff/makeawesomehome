@@ -39,10 +39,15 @@ view address model =
 choreStyle : Attribute
 choreStyle =
   style
-    [ ("border", "1px solid #ccc")
-    , ("display", "inline-block")
-    , ("font-size", "20px")
-    , ("font-family", "monospace")
-    , ("padding", "20px")
-    , ("text-align", "center")
+    [ ("box-shadow", "inset 0px 0px 0px 1px #ccc")
+    , ("color", "#333")
+    , ("display", "flex")
+    , ("font-size", "24px")
+    , ("font-weight", "bold")
+    , ("max-width", "360px")
+    , ("margin", "15px")
+    , ("padding", "15px")
+    , ("transition"
+      , "background 0.15s ease-in-out, box-shadow 0.15s ease-in-out")
+    , ("width", "100%")
     ]
