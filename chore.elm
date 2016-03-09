@@ -17,13 +17,13 @@ type alias Model =
 
 -- UPDATE
 
-type Action = Complete
+type Action = Toggle
 
 update : Action -> Model -> Model
 update action model =
   case action of
-    Complete ->
-      { model | isCompleted = True }
+    Toggle ->
+      { model | isCompleted = not model.isCompleted }
 
 
 -- VIEW
@@ -32,7 +32,7 @@ view : Signal.Address Action -> Model -> Html
 view address model =
   div [ choreStyle ]
     [ div [ ] [ text (model.title ++ " isCompleted:" ++ toString model.isCompleted) ]
-    , button [ onClick address Complete ] [ text "Complete" ]
+    , button [ onClick address Toggle ] [ text "Toggle" ]
     ]
 
 
