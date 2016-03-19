@@ -1,5 +1,6 @@
 module Chore where
 
+import Date
 import Html exposing (..)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
@@ -12,8 +13,17 @@ type alias Model =
   , location: String
   , title: String
   , isCompleted: Bool
+  , date: Date.Date
   }
 
+showDate : Date.Date -> String
+showDate date =
+  toString (Date.day date) ++ ", " ++
+  toString (Date.month date) ++ " " ++
+  toString (Date.year date) ++ "  " ++
+  toString (Date.hour date) ++ ":" ++
+  toString (Date.minute date) ++ ":" ++
+  toString (Date.second date)
 
 -- UPDATE
 
@@ -32,6 +42,7 @@ view : Signal.Address Action -> Model -> Html
 view address model =
   div [ choreStyle ]
     [ div [ ] [ text (model.title ++ " isCompleted:" ++ toString model.isCompleted) ]
+    , div [ ] [ text (showDate model.date) ]
     , button [ onClick address Toggle ] [ text "Toggle" ]
     ]
 
