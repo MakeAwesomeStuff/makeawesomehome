@@ -1,4 +1,4 @@
-module Chore where
+module Chore (Model, init, Action, update, view) where
 
 import Html exposing (..)
 import Html.Attributes exposing (style)
@@ -14,10 +14,14 @@ type alias Model =
   , isCompleted: Bool
   }
 
+init : Model -> Model
+init chore = chore
+
 
 -- UPDATE
 
-type Action = Toggle
+type Action
+  = Toggle
 
 update : Action -> Model -> Model
 update action model =
