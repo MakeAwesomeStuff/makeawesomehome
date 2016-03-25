@@ -1,4 +1,4 @@
-module Chore (Model, init, Action, update, view) where
+module Chore (Model, init, Action, update, view, viewWithRemoveButton, Context) where
 
 import Html exposing (..)
 import Html.Attributes exposing (style)
@@ -40,6 +40,21 @@ view address model =
     ]
 
 
+type alias Context =
+    { actions : Signal.Address Action
+    , remove : Signal.Address ()
+    }
+
+
+viewWithRemoveButton : Context -> Model -> Html
+viewWithRemoveButton context model =
+  div [ choreStyle ]
+    [ div [ ] [ text (model.title ++ " isCompleted:" ++ toString model.isCompleted) ]
+    , button [ onClick context.actions Toggle ] [ text "Toggle" ]
+    , button [ onClick context.remove () ] [ text "X" ]
+    ]
+
+
 choreStyle : Attribute
 choreStyle =
   style
@@ -48,7 +63,7 @@ choreStyle =
     , ("display", "flex")
     , ("font-size", "24px")
     , ("font-weight", "bold")
-    , ("max-width", "360px")
+    , ("max-width", "400px")
     , ("margin", "15px")
     , ("padding", "15px")
     , ("transition"

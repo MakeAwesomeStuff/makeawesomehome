@@ -27,7 +27,7 @@ init =
 
 type Action
     = Insert
-    | Remove
+    | Remove ID
     | Modify ID Chore.Action
 
 update : Action -> Model -> Model
@@ -50,8 +50,10 @@ update action model =
               nextID = model.nextID + 1
           }
 
-    Remove ->
-      { model | chores = List.drop 1 model.chores }
+    Remove id ->
+      { model |
+          chores = List.filter (\(choreID, _) -> choreID /= id) model.chores
+      }
 
     Modify id choreAction ->
       let updateChore (choreID, choreModel) =
@@ -66,12 +68,16 @@ update action model =
 
 view : Signal.Address Action -> Model -> Html
 view address model =
-  let chores = List.map (viewChore address) model.chores
-      remove = button [ onClick address Remove ] [ text "Remove" ]
-      insert = button [ onClick address Insert ] [ text "Add" ]
+  let insert = button [ onClick address Insert ] [ text "Add" ]
   in
-      div [] ([remove, insert] ++ chores)
+      div [] (insert :: List.map (viewChore address) model.chores)
+
 
 viewChore : Signal.Address Action -> (ID, Chore.Model) -> Html
 viewChore address (id, model) =
-  Chore.view (Signal.forwardTo address (Modify id)) model
+  let context =
+        Chore.Context
+          (Signal.forwardTo address (Modify id))
+          (Signal.forwardTo address (always (Remove id)))
+  in
+      Chore.viewWithRemoveButton context model
